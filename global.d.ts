@@ -1,1 +1,1 @@
-declare module "src/**.scss"
+declare module "**.scss"

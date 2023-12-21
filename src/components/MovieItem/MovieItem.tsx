@@ -2,18 +2,24 @@ import { FC } from "react";
 import "./MovieItem.scss";
 import { IMovieItem } from "../../types";
 
-export const MovieItem: FC<IMovieItem> = ({ Poster, Title, Type, Year }) => {
+interface MovieItemProps {
+  movie: IMovieItem;
+}
+
+export const MovieItem: FC<MovieItemProps> = ({ movie }) => {
   return (
     <>
-      <div key={Title} className={"MovieItem"}>
+      <div key={movie.Title} className={"MovieItem"}>
         <div className="image">
-          <img src={Poster} alt={Title} />
+          <img src={movie.Poster} alt={movie.Title} />
         </div>
-        <h2>{Title}</h2>
-        <span>
-          {Type}
-          <b>{Year}</b>
-        </span>
+        <div className="info">
+          <h2 title={movie.Title} className="MovieTitle" >{movie.Title}</h2>
+          <span>
+            {movie.Type}
+            <b>{movie.Year}</b>
+          </span>
+        </div>
       </div>
     </>
   );
